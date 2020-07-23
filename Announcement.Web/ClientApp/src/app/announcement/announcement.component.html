@@ -1,0 +1,10 @@
+<button mat-raised-button class="create-button" color = "primary" [routerLink]="['/create']">
+    Create
+</button>
+
+<div *ngIf="isLoaded | async">
+    <app-announcement-preview 
+        [announcement]="announcement"
+        *ngFor="let announcement of announcementList"
+    > </app-announcement-preview>
+</div>

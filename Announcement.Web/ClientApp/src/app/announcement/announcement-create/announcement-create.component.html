@@ -1,0 +1,40 @@
+<mat-card class="form mat-elevation-z5" appCardStyle>
+    <h2 mat-dialog-title>
+        Announcement creation
+    </h2>
+
+    <form [formGroup]="this.announcementForm">
+        <div fxLayout="column">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input formControlName="title" autofocus required matInput [placeholder]="Title">
+                <mat-error *ngIf="this.announcementForm.controls['title'].errors?.required">
+                    This field is required</mat-error>
+                <mat-error *ngIf="this.announcementForm.controls['title'].errors?.minlength">
+                    The line is too short</mat-error>
+                <mat-error *ngIf="this.announcementForm.controls['title'].errors?.maxlength">
+                    The line is too long</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea formControlName="description" matTextareaAutosize matInput autofocus required
+                    [placeholder]="Description"></textarea>
+                <mat-error *ngIf="this.announcementForm.controls['description'].errors?.required">
+                    This field is required</mat-error>
+                <mat-error *ngIf="this.announcementForm.controls['description'].errors?.minlength">
+                    The line is too short</mat-error>
+                <mat-error *ngIf="this.announcementForm.controls['description'].errors?.maxlength">
+                    The line is too long</mat-error>
+            </mat-form-field>
+            <mat-dialog-actions fxLayout="row" fxFlexAlign="end">
+                <button mat-raised-button color="primary" type="submit" [disabled]="this.announcementForm.invalid"
+                    (click)="onSubmit()">
+                    Confirm
+                </button>
+                <button mat-raised-button color="warn" type="reset" [routerLink]="['/']">
+                    Cancel
+                </button>
+            </mat-dialog-actions>
+        </div>
+    </form>
+</mat-card>

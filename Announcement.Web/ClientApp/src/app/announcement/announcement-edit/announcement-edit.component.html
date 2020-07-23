@@ -1,0 +1,43 @@
+<mat-card class="form mat-elevation-z5" appCardStyle>
+    <h2 mat-dialog-title>
+        <span>Announcement editing</span>
+    </h2>
+    <form [formGroup]="this.editForm">
+        <div fxLayout="column">
+            <mat-form-field>
+                <input formControlName="title"  required matInput
+                    [placeholder]="Title">
+                    <mat-error *ngIf="this.editForm.controls['title'].errors?.required">
+                        This field is required</mat-error>
+                    <mat-error *ngIf="this.editForm.controls['title'].errors?.minlength">
+                        The line is too short</mat-error>
+                    <mat-error *ngIf="this.editForm.controls['title'].errors?.maxlength">
+                        The line is too long</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea formControlName="description" matTextareaAutosize matInput required
+                    [placeholder]="Description"></textarea>
+                    <mat-error *ngIf="this.editForm.controls['description'].errors?.required">
+                        This field is required</mat-error>
+                    <mat-error *ngIf="this.editForm.controls['description'].errors?.minlength">
+                        The line is too short</mat-error>
+                    <mat-error *ngIf="this.editForm.controls['description'].errors?.maxlength">
+                        The line is too long</mat-error>
+            </mat-form-field>
+            <mat-dialog-actions fxLayout="row" fxFlexAlign="end"> 
+                <button
+                mat-raised-button
+                color="primary"
+                type="button"
+                [disabled]="this.editForm.invalid"
+                (click)="onSubmit()"
+                >
+                Confirm
+                </button>
+                    <button mat-raised-button color="warn" type="reset" [routerLink]="['/details/', this.id]">
+                    Cancel
+                </button>
+            </mat-dialog-actions>
+        </div>
+    </form>
+</mat-card>

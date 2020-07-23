@@ -1,0 +1,27 @@
+<mat-card class="home-card  mat-elevation-z5">
+    <mat-card-content fxLayout="column">
+        <div fxLayout="row">
+            <div fxFlex>
+                <h1>{{this.announcement?.title}}</h1>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end">
+                <button mat-icon-button [routerLink]="['/']">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <button mat-icon-button [routerLink]="['/edit/'+this.id]">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="onDelete(this.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="text-container">
+            <span class="text-content">{{this.announcement?.description}}</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end">
+            <span class="date-container space">{{this.announcement?.dateAdded | date}}</span>
+        </div>
+    </mat-card-content>
+</mat-card> 
+<app-similar-announcement [id]="this.id" ></app-similar-announcement>

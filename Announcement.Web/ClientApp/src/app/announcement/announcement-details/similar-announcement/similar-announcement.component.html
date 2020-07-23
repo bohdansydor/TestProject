@@ -1,0 +1,16 @@
+<div class="home">
+    <button mat-raised-button color="accent" class="button" (click)="toggle()">Top similar announcement</button>
+    <div *ngIf="mode">
+        <ng-template [ngIf]="similarAnnouncements.length === 0" [ngIfElse]="ok">
+            <h1>Similar announcement not found</h1>
+        </ng-template>
+        <ng-template #ok>
+            <div *ngIf="isLoaded | async">
+                <app-announcement-preview [announcement]="announcement"
+                    *ngFor="let announcement of similarAnnouncements">
+                </app-announcement-preview>
+            </div>
+        </ng-template>
+    </div>
+
+</div>

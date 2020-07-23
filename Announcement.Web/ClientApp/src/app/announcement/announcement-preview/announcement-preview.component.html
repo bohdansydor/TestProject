@@ -1,0 +1,31 @@
+<div class="preview">
+    <mat-card class="home-card mat-elevation-z5" appCardStyle>
+        <mat-card-content class="home-card-content" fxLayout="row" fxLayout.md="column" fxLayout.sm="column">
+            <div class="main-container" fxLayout="column">
+                <div class="content-container" fxLayout="row" fxFlex="85">
+                    <div class="text-container" fxLayout="column" fxFlex="95" fxFlex.md="85" fxFlex.sm="80">
+                        <mat-card-title>
+                            <a [routerLink]="['/details/', announcement.id]" class="title-link">
+                                <h2>
+                                    {{this.announcement.title}}
+                                </h2>
+                            </a>
+                        </mat-card-title>
+                        <div fxFlex="100">
+                            <h4>
+                                {{this.announcement?.description.substring(0, 420)}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+
+        <mat-card-footer class="card-footer" fxLayout="row">
+            <p>
+                Date: {{this.announcement.dateAdded | date}}
+            </p>
+        </mat-card-footer>
+    </mat-card>
+
+</div>
