@@ -21,6 +21,9 @@ export class SimilarAnnouncementComponent implements OnInit {
   }
   toggle() {
     this.mode = !this.mode;
+    if(this.mode === true){
+      this.getSimilarAnnouncements(this.id);
+    }
   }
   getSimilarAnnouncements(id:number){
     this.announcementService.getTopThreeSimilarAnnouncement(id).subscribe((data: Announcement[]) => {

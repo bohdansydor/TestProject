@@ -5,7 +5,7 @@
                 <div class="content-container" fxLayout="row" fxFlex="85">
                     <div class="text-container" fxLayout="column" fxFlex="95" fxFlex.md="85" fxFlex.sm="80">
                         <mat-card-title>
-                            <a [routerLink]="['/details/', announcement.id]" class="title-link">
+                            <a routerLink="details/{{announcement.id}}" class="title-link">
                                 <h2>
                                     {{this.announcement.title}}
                                 </h2>

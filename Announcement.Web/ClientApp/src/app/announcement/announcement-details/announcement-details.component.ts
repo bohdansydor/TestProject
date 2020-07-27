@@ -15,9 +15,6 @@ export class AnnouncementDetailsComponent implements OnInit {
   id: number;
   announcement: Announcement;
   announcementList: Announcement[];
-  similarAnnouncements: Announcement[];
-
-
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +45,5 @@ export class AnnouncementDetailsComponent implements OnInit {
         });
     });
   };
- 
 
 }
