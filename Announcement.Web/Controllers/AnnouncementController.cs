@@ -82,7 +82,7 @@ namespace Announcement.Web.Controllers
         }
         // GET: api/announcement/top3/9
         [HttpGet("top3/{id}")]
-        public async Task<IActionResult> GetTopThreeAll(int id)
+        public async Task<IActionResult> GetTopThreeSimilar(int id)
         {
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AnnouncementDto, AnnouncementViewModel>())
                 .CreateMapper();
